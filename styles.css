@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  overflow-y: auto;/*this is for scrolling.previous line too*/
+  overflow-x: hidden;/*as we do not have horizontal scrollbar*/
+  perspective: 10px;/*this is to give 3d effect. who will be near the user and who is not.this is also 
+  called the z axis.this value does not matter. what matters is what value we are giving to other 
+  elements. so it is relative
+  */
+}
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+
+.background {
+  transform: translateZ(-10px) scale(2);/*these are for main parallax effect lines.if the background
+  goes away from us, the size will be smaller and smaller. so to adjust this, the scale value is given.by 
+  giving this, the size remains same but it is farther from us!!!!!!!!!!
+  */
+}
+
+.foreground {
+  transform: translateZ(-5px) scale(1.5);
+}
+
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;/*to give a good aspect ration no matter what is the screen*/
+  z-index: -1;
+}
+
+.title {
+  font-size: 7rem;
+  color: white;
+  text-shadow: 0 0 5px black;;
+}
+
+section {
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: #333;
+  color: white;
+}
